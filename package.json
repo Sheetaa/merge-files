@@ -1,0 +1,20 @@
+{
+  "name": "merge files",
+  "version": "0.1.0",
+  "description": "Combine multiple files into one file in order based on multistream. It's a promise version that applies to merging large files that taking long time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stream",
+    "combine",
+    "promise",
+    "file"
+  ],
+  "author": "Sheeta",
+  "license": "ISC",
+  "dependencies": {
+    "multistream": "^2.1.0"
+  }
+}
