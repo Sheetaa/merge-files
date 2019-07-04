@@ -14,7 +14,7 @@ var multistream = require('multistream');
  * @return {promise}       promise
  */
 module.exports = function mergeFiles(inputPathList, outputPath) {
-    fs.openSync(outputPath, 'w+');
+    var fd = fs.openSync(outputPath, 'w+');
     var output = fs.createWriteStream(outputPath);
     var inputList = inputPathList.map((path) => {
         return fs.createReadStream(path);
@@ -23,9 +23,11 @@ module.exports = function mergeFiles(inputPathList, outputPath) {
         var multiStream = multistream(inputList);
         multiStream.pipe(output);
         multiStream.on('end', () => {
+            fs.closeSync(fd);
             resolve(true);
         });
         multiStream.on('error', () => {
+            fs.closeSync(fd);
             reject(false);
         });
     });

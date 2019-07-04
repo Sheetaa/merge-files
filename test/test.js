@@ -1,5 +1,4 @@
 var test = require('ava');
-var fs = require('fs');
 var mergeFiles = require('../index');
 var areFilesEqual = require('fs-equal').areFilesEqual;
 
